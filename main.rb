@@ -18,12 +18,19 @@ loop do
   collection.to_a.each_with_index do |product, index|
     puts "#{index + 1}. #{product}"
   end
-  puts "0. Выход"
+  puts "5. Выход"
 
-  user_choice = gets.to_i
 
-  break if user_choice == 0
-  next puts "Выберите цифру из списка" if user_choice > collection.to_a.length
+  user_choice = 0
+
+  while user_choice == 0 do
+    user_choice = gets.to_i
+  end
+
+
+  break if user_choice == 5
+  next puts "Выберите цифру из списка" if user_choice < 0 || user_choice > collection.to_a.length
+
 
   product_index = user_choice - 1
   product = collection.to_a[product_index]
